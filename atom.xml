@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>心不了情</title>
+  
+  <subtitle>富婆叫我了,告辞...</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://wangzhicto.com/"/>
+  <updated>2019-05-07T11:39:00.383Z</updated>
+  <id>http://wangzhicto.com/</id>
+  
+  <author>
+    <name>Wang Zhi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>千里之行始于足下</title>
+    <link href="http://wangzhicto.com/2019/05/07/day01/"/>
+    <id>http://wangzhicto.com/2019/05/07/day01/</id>
+    <published>2019-05-07T11:35:54.026Z</published>
+    <updated>2019-05-07T11:39:00.383Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><h4 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;HelloWorld&quot;&gt;&lt;a href=&quot;#HelloWorld&quot; class=&quot;headerlink&quot; title=&quot;HelloWorld&quot;&gt;&lt;/a&gt;HelloWorld&lt;/h1&gt;&lt;h4 id=&quot;你好&quot;&gt;&lt;a href=&quot;#你好&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="DB" scheme="http://wangzhicto.com/categories/DB/"/>
+    
+    
+      <category term="java" scheme="http://wangzhicto.com/tags/java/"/>
+    
+      <category term="数" scheme="http://wangzhicto.com/tags/%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>千里之行始于足下</title>
+    <link href="http://wangzhicto.com/2019/05/07/hello-world/"/>
+    <id>http://wangzhicto.com/2019/05/07/hello-world/</id>
+    <published>2019-05-07T09:12:56.559Z</published>
+    <updated>2019-05-07T11:27:06.966Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="千里之行始于足下"><a href="#千里之行始于足下" class="headerlink" title="千里之行始于足下"></a>千里之行始于足下</h1><h4 id="今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档-安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。"><a href="#今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档-安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。" class="headerlink" title="今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。"></a>今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;千里之行始于足下&quot;&gt;&lt;a href=&quot;#千里之行始于足下&quot; class=&quot;headerlink&quot; title=&quot;千里之行始于足下&quot;&gt;&lt;/a&gt;千里之行始于足下&lt;/h1&gt;&lt;h4 id=&quot;今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢
+      
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://wangzhicto.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="java" scheme="http://wangzhicto.com/tags/java/"/>
+    
+      <category term="数据库" scheme="http://wangzhicto.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[千里之行始于足下]]></title>
+    <url>%2F2019%2F05%2F07%2Fday01%2F</url>
+    <content type="text"><![CDATA[HelloWorld你好]]></content>
+      <categories>
+        <category>DB</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[千里之行始于足下]]></title>
+    <url>%2F2019%2F05%2F07%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+</search>
