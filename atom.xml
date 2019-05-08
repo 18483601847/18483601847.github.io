@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangzhicto.com/"/>
-  <updated>2019-05-08T04:36:15.868Z</updated>
+  <updated>2019-05-08T15:16:34.582Z</updated>
   <id>http://wangzhicto.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP协议</title>
+    <link href="http://wangzhicto.com/2019/05/08/HTTP/"/>
+    <id>http://wangzhicto.com/2019/05/08/HTTP/</id>
+    <published>2019-05-08T15:13:58.607Z</published>
+    <updated>2019-05-08T15:16:34.582Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="走进HTTP协议之报文-上"><a href="#走进HTTP协议之报文-上" class="headerlink" title="走进HTTP协议之报文(上)"></a>走进HTTP协议之报文(上)</h1><hr><p><strong>第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏里输入了<a href="http://www.baidu.com按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料" target="_blank" rel="noopener">www.baidu.com按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料</a>!</strong></p><h2 id="HTTP报文结构"><a href="#HTTP报文结构" class="headerlink" title="HTTP报文结构"></a>HTTP报文结构</h2><p>对于新同学来说首先上图：我以火狐浏览器为例，打开浏览器按下F12，就可以看到许多条浏览器请求服务器的记录，随便选中一条就可以看到HTTP部分模样了。<strong>（给SB室友改BUG，今晚写个鸡儿博客!!!告辞!）</strong></p><h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><h2 id="HTTP首部"><a href="#HTTP首部" class="headerlink" title="HTTP首部"></a>HTTP首部</h2><h2 id="HTTP常见状态码速查"><a href="#HTTP常见状态码速查" class="headerlink" title="HTTP常见状态码速查"></a>HTTP常见状态码速查</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;走进HTTP协议之报文-上&quot;&gt;&lt;a href=&quot;#走进HTTP协议之报文-上&quot; class=&quot;headerlink&quot; title=&quot;走进HTTP协议之报文(上)&quot;&gt;&lt;/a&gt;走进HTTP协议之报文(上)&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;第一个博客还是从HTT
+      
+    
+    </summary>
+    
+      <category term="通信" scheme="http://wangzhicto.com/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+      <category term="HTTP" scheme="http://wangzhicto.com/tags/HTTP/"/>
+    
+      <category term="通信" scheme="http://wangzhicto.com/tags/%E9%80%9A%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>千里之行始于足下</title>
