@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,数据库,大数据,源码,">
+  <meta name="keywords" content="HTTP,通信,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。">
-<meta name="keywords" content="java,数据库,大数据,源码">
+<meta name="description" content="走进HTTP协议之报文(下)-浅谈get和post&amp;nbsp;&amp;nbsp;前一章已经初步介绍HTTP报文的主体结构以及常见的各种头信息，但是没有介绍请求行中的一个重要的信息：请求方法。这一章就来说说HTTP请求的几种方法，以及各自的特点，最后附上面试常问的经典面试题get和post。 以HTTP1.1为例，简单介绍8种请求方法。 GET    获取资源  &amp;nbsp;&amp;nbsp;GET方法用来请求">
+<meta name="keywords" content="HTTP,通信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="千里之行始于足下">
-<meta property="og:url" content="http://wangzhicto.com/2019/05/07/hello-world/index.html">
+<meta property="og:title" content="走进HTTP协议之报文(下)-浅谈get和post">
+<meta property="og:url" content="http://wangzhicto.com/2019/05/11/HTTPgetandpost/index.html">
 <meta property="og:site_name" content="心不了情">
-<meta property="og:description" content="千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。">
+<meta property="og:description" content="走进HTTP协议之报文(下)-浅谈get和post&amp;nbsp;&amp;nbsp;前一章已经初步介绍HTTP报文的主体结构以及常见的各种头信息，但是没有介绍请求行中的一个重要的信息：请求方法。这一章就来说说HTTP请求的几种方法，以及各自的特点，最后附上面试常问的经典面试题get和post。 以HTTP1.1为例，简单介绍8种请求方法。 GET    获取资源  &amp;nbsp;&amp;nbsp;GET方法用来请求">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-08T04:36:15.868Z">
+<meta property="og:updated_time" content="2019-05-11T11:13:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="千里之行始于足下">
-<meta name="twitter:description" content="千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。">
+<meta name="twitter:title" content="走进HTTP协议之报文(下)-浅谈get和post">
+<meta name="twitter:description" content="走进HTTP协议之报文(下)-浅谈get和post&amp;nbsp;&amp;nbsp;前一章已经初步介绍HTTP报文的主体结构以及常见的各种头信息，但是没有介绍请求行中的一个重要的信息：请求方法。这一章就来说说HTTP请求的几种方法，以及各自的特点，最后附上面试常问的经典面试题get和post。 以HTTP1.1为例，简单介绍8种请求方法。 GET    获取资源  &amp;nbsp;&amp;nbsp;GET方法用来请求">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://wangzhicto.com/2019/05/07/hello-world/">
+  <link rel="canonical" href="http://wangzhicto.com/2019/05/11/HTTPgetandpost/">
 
 
 
 
 
-  <title>千里之行始于足下 | 心不了情</title>
+  <title>走进HTTP协议之报文(下)-浅谈get和post | 心不了情</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangzhicto.com/2019/05/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://wangzhicto.com/2019/05/11/HTTPgetandpost/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Zhi">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">千里之行始于足下</h1>
+          <h1 class="post-title" itemprop="name headline">走进HTTP协议之报文(下)-浅谈get和post</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T17:12:56+08:00">
-                2019-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T19:13:13+08:00">
+                2019-05-11
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/通信/" itemprop="url" rel="index">
+                    <span itemprop="name">通信</span>
                   </a>
                 </span>
 
@@ -332,7 +332,7 @@
 
           
           
-             <span id="/2019/05/07/hello-world/" class="leancloud_visitors" data-flag-title="千里之行始于足下">
+             <span id="/2019/05/11/HTTPgetandpost/" class="leancloud_visitors" data-flag-title="走进HTTP协议之报文(下)-浅谈get和post">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,7 +363,18 @@
       
 
       
-        <h1 id="千里之行始于足下"><a href="#千里之行始于足下" class="headerlink" title="千里之行始于足下"></a>千里之行始于足下</h1><h4 id="今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档-安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。"><a href="#今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档-安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。" class="headerlink" title="今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。"></a>今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。</h4>
+        <h1 id="走进HTTP协议之报文-下-浅谈get和post"><a href="#走进HTTP协议之报文-下-浅谈get和post" class="headerlink" title="走进HTTP协议之报文(下)-浅谈get和post"></a>走进HTTP协议之报文(下)-浅谈get和post</h1><p>&nbsp;&nbsp;前一章已经初步介绍HTTP报文的主体结构以及常见的各种头信息，但是没有介绍请求行中的一个重要的信息：请求方法。这一章就来说说HTTP请求的几种方法，以及各自的特点，最后附上面试常问的经典面试题get和post。<br></p>
+<h2 id="以HTTP1-1为例，简单介绍8种请求方法。"><a href="#以HTTP1-1为例，简单介绍8种请求方法。" class="headerlink" title="以HTTP1.1为例，简单介绍8种请求方法。"></a>以HTTP1.1为例，简单介绍8种请求方法。</h2><ul>
+<li><font size="4"><strong>GET    获取资源</strong></font><br><br>  &nbsp;&nbsp;<font size="3">GET方法用来请求访问已经被URI识别的资源，请求指定的页面信息，并返回实体主体。如果请求的资是文本类型的资源就原样返回，如果是一段程序，就返回执行结果。</font><br></li>
+<li><font size="4"><strong>POST    传输实体主体</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</font><br></li>
+<li><font size="4"><strong>PUT    传输文件</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    PUT方法用来传输文件。就像FTP的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置，但是PUT方法存在安全隐患，自身没有权限限制。</font><br></li>
+<li><font size="4"><strong>HEAD    获得报文首部</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    HEAD和GET方法一样，只是不返回报文主体。</font><br></li>
+<li><font size="4"><strong>DELETE    删除文件</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    DELETE方法与PUT方法相反，删除指定资源。</font><br></li>
+<li><font size="4"><strong>OPTIONS    询问支持的方法</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    该方法用来查询针对请求URI指定的资源支持的方法。</font><br></li>
+<li><font size="4"><strong>TRACE    追踪路径</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    回显服务器收到的请求，主要用于测试或诊断。</font><br></li>
+<li><font size="4"><strong>CONNECT    连接代理</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    主要用来在与代理服务器通信时建立隧道，便于SSL和TLS协议把通信内容加密后经隧道传输。</font><br><h1 id="GET和POST方法的区别？"><a href="#GET和POST方法的区别？" class="headerlink" title="GET和POST方法的区别？"></a>GET和POST方法的区别？</h1><h3 id="nbsp-nbsp-最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下："><a href="#nbsp-nbsp-最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下：" class="headerlink" title="&nbsp;&nbsp;最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下："></a>&nbsp;&nbsp;最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下：<br></h3><font size="5">1.get方法是URL传参，而post是body体传参，在外观上是最明显的差别。</font><br><br><font size="5">2.get方法传参有大小限制(不同浏览器内核支持不一样,KB级别)，post没有大小限制(受服务器性能和容器版本限制,MB级别)。</font><br><br><font size="5">3.get请求要求传参是ASCII字符，URL编码，post支持更多种编码方式。</font><br><br><font size="5">4.get请求会被浏览器进行缓存和标签，post大多数浏览器不会默认缓存它。</font><br><br><font size="5">5.get请求不存在重复提交问题，post提交会有。</font><br><br><font size="5">6.HTTP设计初衷对两者的目的本身不同。</font><br><br><font size="5">7.get请求只有一次TCP数据包，而post有两次TCP数据包，第一次是将基本头信息和服务器确认，得到响应的100状态码，然后进行第二次数据包发送实体，所以post在效率上不如get</font><br><br><strong>注：虽然post会发送两次数据包，但是在一般网络环境下这并不是太大的影响,仅涉及短暂的流操作，性能消耗甚至可以忽略</strong><h3 id="本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！"><a href="#本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！" class="headerlink" title="本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！"></a>本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！</h3></li>
+</ul>
+
       
     </div>
     
@@ -409,13 +420,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
-          
-            <a href="/tags/大数据/" rel="tag"># 大数据</a>
-          
-            <a href="/tags/源码/" rel="tag"># 源码</a>
+            <a href="/tags/通信/" rel="tag"># 通信</a>
           
         </div>
       
@@ -428,15 +435,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/08/HTTP/" rel="next" title="走进HTTP协议之报文(上)">
+                <i class="fa fa-chevron-left"></i> 走进HTTP协议之报文(上)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/08/HTTP/" rel="prev" title="走进HTTP协议之报文(上)">
-                走进HTTP协议之报文(上) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#千里之行始于足下"><span class="nav-text">千里之行始于足下</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档-安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。"><span class="nav-text">今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#走进HTTP协议之报文-下-浅谈get和post"><span class="nav-text">走进HTTP协议之报文(下)-浅谈get和post</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#以HTTP1-1为例，简单介绍8种请求方法。"><span class="nav-text">以HTTP1.1为例，简单介绍8种请求方法。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GET和POST方法的区别？"><span class="nav-text">GET和POST方法的区别？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-nbsp-最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下："><span class="nav-text">  最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！"><span class="nav-text">本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！</span></a></li></ol></li></ol></div>
             
 
           </div>

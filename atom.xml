@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangzhicto.com/"/>
-  <updated>2019-05-11T05:40:07.000Z</updated>
+  <updated>2019-05-11T11:13:13.000Z</updated>
   <id>http://wangzhicto.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>走进HTTP协议之报文(下)-浅谈get和post</title>
+    <link href="http://wangzhicto.com/2019/05/11/HTTPgetandpost/"/>
+    <id>http://wangzhicto.com/2019/05/11/HTTPgetandpost/</id>
+    <published>2019-05-11T11:13:13.000Z</published>
+    <updated>2019-05-11T11:13:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="走进HTTP协议之报文-下-浅谈get和post"><a href="#走进HTTP协议之报文-下-浅谈get和post" class="headerlink" title="走进HTTP协议之报文(下)-浅谈get和post"></a>走进HTTP协议之报文(下)-浅谈get和post</h1><p>&nbsp;&nbsp;前一章已经初步介绍HTTP报文的主体结构以及常见的各种头信息，但是没有介绍请求行中的一个重要的信息：请求方法。这一章就来说说HTTP请求的几种方法，以及各自的特点，最后附上面试常问的经典面试题get和post。<br></p><h2 id="以HTTP1-1为例，简单介绍8种请求方法。"><a href="#以HTTP1-1为例，简单介绍8种请求方法。" class="headerlink" title="以HTTP1.1为例，简单介绍8种请求方法。"></a>以HTTP1.1为例，简单介绍8种请求方法。</h2><ul><li><font size="4"><strong>GET    获取资源</strong></font><br><br>  &nbsp;&nbsp;<font size="3">GET方法用来请求访问已经被URI识别的资源，请求指定的页面信息，并返回实体主体。如果请求的资是文本类型的资源就原样返回，如果是一段程序，就返回执行结果。</font><br></li><li><font size="4"><strong>POST    传输实体主体</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</font><br></li><li><font size="4"><strong>PUT    传输文件</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    PUT方法用来传输文件。就像FTP的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置，但是PUT方法存在安全隐患，自身没有权限限制。</font><br></li><li><font size="4"><strong>HEAD    获得报文首部</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    HEAD和GET方法一样，只是不返回报文主体。</font><br></li><li><font size="4"><strong>DELETE    删除文件</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    DELETE方法与PUT方法相反，删除指定资源。</font><br></li><li><font size="4"><strong>OPTIONS    询问支持的方法</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    该方法用来查询针对请求URI指定的资源支持的方法。</font><br></li><li><font size="4"><strong>TRACE    追踪路径</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    回显服务器收到的请求，主要用于测试或诊断。</font><br></li><li><font size="4"><strong>CONNECT    连接代理</strong></font><br><br>  &nbsp;&nbsp;<font size="3">    主要用来在与代理服务器通信时建立隧道，便于SSL和TLS协议把通信内容加密后经隧道传输。</font><br><h1 id="GET和POST方法的区别？"><a href="#GET和POST方法的区别？" class="headerlink" title="GET和POST方法的区别？"></a>GET和POST方法的区别？</h1><h3 id="nbsp-nbsp-最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下："><a href="#nbsp-nbsp-最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下：" class="headerlink" title="&nbsp;&nbsp;最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下："></a>&nbsp;&nbsp;最开始接触HTTP的时候，对get和post的认识仅仅停留在浏览器路径问题上，但是后来不断认识，才了解get和post众多不同之处，我把我所了解的不同点罗列一下：<br></h3><font size="5">1.get方法是URL传参，而post是body体传参，在外观上是最明显的差别。</font><br><br><font size="5">2.get方法传参有大小限制(不同浏览器内核支持不一样,KB级别)，post没有大小限制(受服务器性能和容器版本限制,MB级别)。</font><br><br><font size="5">3.get请求要求传参是ASCII字符，URL编码，post支持更多种编码方式。</font><br><br><font size="5">4.get请求会被浏览器进行缓存和标签，post大多数浏览器不会默认缓存它。</font><br><br><font size="5">5.get请求不存在重复提交问题，post提交会有。</font><br><br><font size="5">6.HTTP设计初衷对两者的目的本身不同。</font><br><br><font size="5">7.get请求只有一次TCP数据包，而post有两次TCP数据包，第一次是将基本头信息和服务器确认，得到响应的100状态码，然后进行第二次数据包发送实体，所以post在效率上不如get</font><br><br><strong>注：虽然post会发送两次数据包，但是在一般网络环境下这并不是太大的影响,仅涉及短暂的流操作，性能消耗甚至可以忽略</strong><h3 id="本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！"><a href="#本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！" class="headerlink" title="本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！"></a>本章就是我目前对HTTP中这几种方法的认知，如有错误或不足，欢迎讨论，接受批评！</h3></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;走进HTTP协议之报文-下-浅谈get和post&quot;&gt;&lt;a href=&quot;#走进HTTP协议之报文-下-浅谈get和post&quot; class=&quot;headerlink&quot; title=&quot;走进HTTP协议之报文(下)-浅谈get和post&quot;&gt;&lt;/a&gt;走进HTTP协议之报文(下
+      
+    
+    </summary>
+    
+      <category term="通信" scheme="http://wangzhicto.com/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+      <category term="HTTP" scheme="http://wangzhicto.com/tags/HTTP/"/>
+    
+      <category term="通信" scheme="http://wangzhicto.com/tags/%E9%80%9A%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>走进HTTP协议之报文(上)</title>
