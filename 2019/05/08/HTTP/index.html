@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wangzhicto.com/2019/05/08/HTTP/images/request.png">
 <meta property="og:image" content="http://wangzhicto.com/images/http.png">
-<meta property="og:updated_time" content="2019-05-11T09:05:31.847Z">
+<meta property="og:updated_time" content="2019-05-11T09:07:42.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议">
 <meta name="twitter:description" content="走进HTTP协议之报文(上) 第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏">
@@ -367,7 +367,7 @@
 
       
         <h1 id="走进HTTP协议之报文-上"><a href="#走进HTTP协议之报文-上" class="headerlink" title="走进HTTP协议之报文(上)"></a>走进HTTP协议之报文(上)</h1><hr>
-<p><strong>第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏里输入了’<a href="http://www.baidu.com&#39;按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料" target="_blank" rel="noopener">www.baidu.com&#39;按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料</a>!</strong></p>
+<p><strong>第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏里输入了<code>www.baidu.com</code>按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料!</strong></p>
 <h2 id="HTTP报文结构"><a href="#HTTP报文结构" class="headerlink" title="HTTP报文结构"></a>HTTP报文结构</h2><p>客户端与服务器之间的通信通过底层流处理传输数据，但是如果两者之间只是单纯的发送字节数据，彼此根本不知道对方所描述的信息，两种之间必须通过某种数据格式传输数据，好比人们写信一样，要按照某一种格式写，如果只是在纸上不按规矩随便写上自己的内容，接收方是无法理解你写的东西的。而客户端与服务器之间通信约定的格式就是HTTP协议，HTTP他是一种规范，一种约定的协议，并不是某种新的物理技术。<br><a id="more"></a><br>对于新同学来说首先上图：我以火狐浏览器为例，打开浏览器按下F12，就可以看到许多条浏览器请求服务器的记录，随便选中一条就可以看到HTTP部分模样了。</p>
 <p><img src="/2019/05/08/HTTP/images/request.png" alt></p>
 <h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><p>HTTP请求和响应的报文结构一致</p>
