@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangzhicto.com/"/>
-  <updated>2019-05-16T09:03:13.000Z</updated>
+  <updated>2019-05-17T06:03:13.000Z</updated>
   <id>http://wangzhicto.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>资源分享</title>
+    <link href="http://wangzhicto.com/2019/05/17/%E8%B5%84%E6%BA%90/"/>
+    <id>http://wangzhicto.com/2019/05/17/资源/</id>
+    <published>2019-05-17T06:03:13.000Z</published>
+    <updated>2019-05-17T06:03:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去"><a href="#平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去" class="headerlink" title="平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去"></a>平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去</h2><h1 id="浏览器输入ftp-47-100-242-238-即可访问登录名用ftptest密码ftp123456-该用户只有FTP目录的读取权限"><a href="#浏览器输入ftp-47-100-242-238-即可访问登录名用ftptest密码ftp123456-该用户只有FTP目录的读取权限" class="headerlink" title="浏览器输入ftp://47.100.242.238/即可访问登录名用ftptest密码ftp123456 该用户只有FTP目录的读取权限"></a>浏览器输入<code><a href="ftp://47.100.242.238/" target="_blank" rel="noopener">ftp://47.100.242.238/</a></code>即可访问<br>登录名用<code>ftptest</code><br>密码<code>ftp123456</code> <br>该用户只有FTP目录的读取权限</h1><p><img src="https://wangzhiblog.oss-cn-beijing.aliyuncs.com/ftp.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去&quot;&gt;&lt;a href=&quot;#平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，
+      
+    
+    </summary>
+    
+      <category term="资源" scheme="http://wangzhicto.com/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="资源" scheme="http://wangzhicto.com/tags/%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>图片转Base64编码-java实现</title>

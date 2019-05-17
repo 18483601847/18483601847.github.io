@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[资源分享]]></title>
+    <url>%2F2019%2F05%2F17%2F%E8%B5%84%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[平时收集的开发相关的资料，自己搭建的FTP服务器，可随时下载，包括常用的jar包，安装各组件教程，安装包，等等，后续慢慢上传上去浏览器输入ftp://47.100.242.238/即可访问登录名用ftptest密码ftp123456 该用户只有FTP目录的读取权限]]></content>
+      <categories>
+        <category>资源</category>
+      </categories>
+      <tags>
+        <tag>资源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[图片转Base64编码-java实现]]></title>
     <url>%2F2019%2F05%2F16%2FBase64%2F</url>
     <content type="text"><![CDATA[为什么要将图片Base64转码?&nbsp;&nbsp;在web开发过程中,客户端与服务器通过HTTP协议互相获取数据，如果页面存在大量的图片，而都通过HTTP请求来获取资源，无疑是消耗不必要的性能。我们可以通过对一些比较小的图片或者需要该图片快速渲染处理，我们可以将该图片进行Base64转码，从而减少HTTP请求次数以达到优化目的，蚊子腿也是肉。但并不是将所有的图片都进行转码，过多的Base64也会造成前端CSS渲染压力增大，视不同场景取舍。 如何将图片进行转码?&nbsp;&nbsp;我以java代码为例，照一张本地的图片，也可以是网络上的图片，通过IO流和Apache提供的工具类实现commons-codec-1.9.jar(JDK8中也有对应的转码方式，但是Apache工具类更丰富)。 //String imagePath = “D:/uk.png”; public static String getImageBase64(String imagePath){ FileInputStream is = null; //文件输入流 ByteArrayOutputStream data = null; //字节数组流 try { is = new FileInputStream(imagePath); data = new ByteArrayOutputStream(); int len=-1; byte[] by = new byte[1024]; while((len=is.read(by))!=-1){ //循环读取字节 data.write(by,0,len); //循环写入内存 } } catch (IOException e) { e.printStackTrace(); }finally { try { is.close(); //关闭连接 } catch (IOException e) { e.printStackTrace(); } } return Base64.encodeBase64String(data.toByteArray()); //Base64转码 } 有转码当然也有解码，解码过程其实就是反过来，调用decodeBase64方法即可Base64.decodeBase64(Base64Code);]]></content>
