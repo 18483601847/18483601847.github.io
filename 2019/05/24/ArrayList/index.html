@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HTTP,通信,执行流程,TCP/IP,">
+  <meta name="keywords" content="ArrayList,源码,java,">
 
 
 
@@ -79,22 +79,18 @@
 
 
 
-<meta name="description" content="HTTP执行流程拓展&amp;nbsp;&amp;nbsp;本章博客是介绍web请求会话过程中网络执行的情况，不涉及服务器内部执行流程。话不多说，一起学习吧！&amp;nbsp;&amp;nbsp;第一篇博客中提到当在浏览器的地址栏中输入www.wangzhicto.com按下回车键的那一刻，展现在眼前的页面就是通过HTTP从服务器带回来的，其实这一刻，不仅仅是发送HTTP请求这么简单，先看一下整个过程概览，然后一一详解…… 过">
-<meta name="keywords" content="HTTP,通信,执行流程,TCP&#x2F;IP">
+<meta name="description" content="ArrayList源码剖析&amp;nbsp;&amp;nbsp;作为日常开发中最常用的集合之一的ArrayList，说到他我们第一个印象就是知道他底层是动态数组实现，今天就来看看他的功能到底是怎么实现的。我以JDK1.8为例，解读一下ArrayList常见方法的源码。对于ArrayList主要的就是它的：  ArrayList的构造 ArrayList添加元素 ArrayList获取元素 ArrayList删除">
+<meta name="keywords" content="ArrayList,源码,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="完整的HTTP请求过程">
-<meta property="og:url" content="http://wangzhicto.com/2019/05/12/http全过程/index.html">
+<meta property="og:title" content="集合源码剖析———ArrayList">
+<meta property="og:url" content="http://wangzhicto.com/2019/05/24/ArrayList/index.html">
 <meta property="og:site_name" content="心不了情">
-<meta property="og:description" content="HTTP执行流程拓展&amp;nbsp;&amp;nbsp;本章博客是介绍web请求会话过程中网络执行的情况，不涉及服务器内部执行流程。话不多说，一起学习吧！&amp;nbsp;&amp;nbsp;第一篇博客中提到当在浏览器的地址栏中输入www.wangzhicto.com按下回车键的那一刻，展现在眼前的页面就是通过HTTP从服务器带回来的，其实这一刻，不仅仅是发送HTTP请求这么简单，先看一下整个过程概览，然后一一详解…… 过">
+<meta property="og:description" content="ArrayList源码剖析&amp;nbsp;&amp;nbsp;作为日常开发中最常用的集合之一的ArrayList，说到他我们第一个印象就是知道他底层是动态数组实现，今天就来看看他的功能到底是怎么实现的。我以JDK1.8为例，解读一下ArrayList常见方法的源码。对于ArrayList主要的就是它的：  ArrayList的构造 ArrayList添加元素 ArrayList获取元素 ArrayList删除">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://wangzhiblog.oss-cn-beijing.aliyuncs.com/wireshark.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3985563-ecf824604debcdf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072">
-<meta property="og:updated_time" content="2019-05-12T08:07:13.000Z">
+<meta property="og:updated_time" content="2019-05-23T06:03:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="完整的HTTP请求过程">
-<meta name="twitter:description" content="HTTP执行流程拓展&amp;nbsp;&amp;nbsp;本章博客是介绍web请求会话过程中网络执行的情况，不涉及服务器内部执行流程。话不多说，一起学习吧！&amp;nbsp;&amp;nbsp;第一篇博客中提到当在浏览器的地址栏中输入www.wangzhicto.com按下回车键的那一刻，展现在眼前的页面就是通过HTTP从服务器带回来的，其实这一刻，不仅仅是发送HTTP请求这么简单，先看一下整个过程概览，然后一一详解…… 过">
-<meta name="twitter:image" content="https://wangzhiblog.oss-cn-beijing.aliyuncs.com/wireshark.png">
+<meta name="twitter:title" content="集合源码剖析———ArrayList">
+<meta name="twitter:description" content="ArrayList源码剖析&amp;nbsp;&amp;nbsp;作为日常开发中最常用的集合之一的ArrayList，说到他我们第一个印象就是知道他底层是动态数组实现，今天就来看看他的功能到底是怎么实现的。我以JDK1.8为例，解读一下ArrayList常见方法的源码。对于ArrayList主要的就是它的：  ArrayList的构造 ArrayList添加元素 ArrayList获取元素 ArrayList删除">
 
 
 
@@ -124,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://wangzhicto.com/2019/05/12/http全过程/">
+  <link rel="canonical" href="http://wangzhicto.com/2019/05/24/ArrayList/">
 
 
 
 
 
-  <title>完整的HTTP请求过程 | 心不了情</title>
+  <title>集合源码剖析———ArrayList | 心不了情</title>
   
 
 
@@ -267,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangzhicto.com/2019/05/12/http全过程/">
+    <link itemprop="mainEntityOfPage" href="http://wangzhicto.com/2019/05/24/ArrayList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Zhi">
@@ -284,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">完整的HTTP请求过程</h1>
+          <h1 class="post-title" itemprop="name headline">集合源码剖析———ArrayList</h1>
         
 
         <div class="post-meta">
@@ -296,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:07:13+08:00">
-                2019-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T00:03:13+08:00">
+                2019-05-24
               </time>
             
 
@@ -319,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/通信/" itemprop="url" rel="index">
-                    <span itemprop="name">通信</span>
+                  <a href="/categories/源码/" itemprop="url" rel="index">
+                    <span itemprop="name">源码</span>
                   </a>
                 </span>
 
@@ -336,7 +332,7 @@
 
           
           
-             <span id="/2019/05/12/http全过程/" class="leancloud_visitors" data-flag-title="完整的HTTP请求过程">
+             <span id="/2019/05/24/ArrayList/" class="leancloud_visitors" data-flag-title="集合源码剖析———ArrayList">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,26 +363,18 @@
       
 
       
-        <h1 id="HTTP执行流程拓展"><a href="#HTTP执行流程拓展" class="headerlink" title="HTTP执行流程拓展"></a>HTTP执行流程拓展</h1><p>&nbsp;&nbsp;本章博客是介绍web请求会话过程中网络执行的情况，不涉及服务器内部执行流程。话不多说，一起学习吧！<br><br>&nbsp;&nbsp;<strong>第一篇博客中提到当在浏览器的地址栏中输入<code>www.wangzhicto.com</code>按下回车键的那一刻，展现在眼前的页面就是通过HTTP从服务器带回来的，其实这一刻，不仅仅是发送HTTP请求这么简单，先看一下整个过程概览，然后一一详解……</strong><br></p>
-<h2 id="过程概览"><a href="#过程概览" class="headerlink" title="过程概览"></a>过程概览</h2><ol>
-<li>域名解析    (目的：得到服务器IP地址，定位地址)</li>
-<li>TCP握手    (目的：建立连接状态)</li>
-<li>发送HTTP请求    (目的：发起请求)</li>
-<li>响应HTTP请求    (目的：得到资源)</li>
-<li>TCP挥手    (目的：结束连接状态,此过程和Connection:keep-alive有关，原因详情看下文)</li>
-<li>浏览器解析/渲染资源展现给用户<h3 id="一、域名解析"><a href="#一、域名解析" class="headerlink" title="一、域名解析"></a>一、域名解析</h3>&nbsp;&nbsp;域名解析的目的就是为了拿到目的服务器的IP地址，此过程解析顺序如下：浏览器DNS缓存→操作系统DNS缓存→hosts文件映射→DNS服务器解析。此过程不一定全部执行，只要在某个环节找到IP地址就无需继续进行。</li>
-</ol>
+        <h1 id="ArrayList源码剖析"><a href="#ArrayList源码剖析" class="headerlink" title="ArrayList源码剖析"></a>ArrayList源码剖析</h1><p>&nbsp;&nbsp;作为日常开发中最常用的集合之一的ArrayList，说到他我们第一个印象就是知道他底层是动态数组实现，今天就来看看他的功能到底是怎么实现的。我以JDK1.8为例，解读一下ArrayList常见方法的源码。对于ArrayList主要的就是它的：</p>
 <ul>
-<li>浏览器检查自身的DNS缓存，如果缓存中有，则拿到IP。以谷歌浏览器为例，可以输入<code>chrome://net-internals/#dns</code>来查看缓存，浏览器的DNS缓存有容量上线。</li>
-<li>操作系统检查自身的DNS缓存以拿到IP，Windows可以在DOS命令中输入<code>ipconfig /displaydns</code>命令来查看系统DNS缓存。</li>
-<li>hosts文件映射，如果文件中定义了该域名IP映射就可以直接拿到，Windows系统中hosts存在于<code>C:\Windows\System32\drivers\etc</code>目录下。</li>
-<li>如果到了第三不也没有找到IP映射关系，浏览器会向本地的DNS服务器发起一个域名解析的请求以得到IP(DNS服务器解析过程这里不作介绍,我的知识盲区)<h3 id="二、TCP三次握手"><a href="#二、TCP三次握手" class="headerlink" title="二、TCP三次握手"></a>二、TCP三次握手</h3>通过对wireshark抓包软件可以看到，建立HTTP连接的确是基于TCP三次握手开始，wireshark抓包的使用，日后给他家分享!<br><img src="https://wangzhiblog.oss-cn-beijing.aliyuncs.com/wireshark.png"><br><br><img src="http://upload-images.jianshu.io/upload_images/3985563-ecf824604debcdf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><br>&nbsp;&nbsp;HTTP是建立在TCP/IP协议之上的应用层协议，浏览器拿到域名对应的IP地址后，就会开始向服务器发起连接的请求，TCP连接要经历三次握手(图片来源于百度)：<br><br><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2590032753,2466318043&fm=173&app=49&f=JPEG?w=640&h=716&s=E7F239D247AFCCEA106594580300D072"><br><br>第一次握手：客户端发送syn包(seq=x)到服务器，并进入SYN-SEND状态，等待服务器确认。<br><br>第二次握手：服务器收到syn包，必须确认客户的SYN(ack=x+1)，同时自己也发送一个SYN包(seq=y)，即SYN+ACK包，此时服务器进入SYN-RECV状态。<br><br>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<h3 id="三、发送HTTP请求"><a href="#三、发送HTTP请求" class="headerlink" title="三、发送HTTP请求"></a>三、发送HTTP请求</h3>&nbsp;&nbsp;建立好客户端与服务器的TCP连接以后，就开始HTTP的请求了，此过程在前一章已经讨论过了，再次不做赘述，此过程目的就是客户端发起HTTP请求，告诉服务器自己想要什么资源。<h3 id="四、响应HTTP请求"><a href="#四、响应HTTP请求" class="headerlink" title="四、响应HTTP请求"></a>四、响应HTTP请求</h3>&nbsp;&nbsp;此过程详情在上一章也做了介绍，目的就是得到服务器传回的资源文件。<h3 id="五、TCP挥手"><a href="#五、TCP挥手" class="headerlink" title="五、TCP挥手"></a>五、TCP挥手</h3>&nbsp;&nbsp;<strong>此过程稍微有点特殊，并不是所有过程都有此步骤，取决于Connection请求头。在上一章介绍过这个请求头，Connection:keep-alive表示持久连接，也就是说如果客户端在发起HTTP请求时，标明了此头信息，则在服务器响应HTTP完成后，不断开连接，以便于下一次继续传输数据，这也是HTTP1.0所没有的功能。但是并不是有了此头信息就会保持长连接，这也取决于此头信息的配置标准，比如超时时间，连接次数</strong><br><br>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不会再给你发数据了(当 然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但此时主动关闭方还可以接受数据。</li>
+<li>ArrayList的构造</li>
+<li>ArrayList添加元素</li>
+<li>ArrayList获取元素</li>
+<li>ArrayList删除元素</li>
+<li>遍历ArrayList</li>
+<li>判断对象是否存在于ArrayList中</li>
+<li>ArrayList排序算法</li>
+<li>ArrayList交并集</li>
 </ul>
-<p>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1(与SYN相同，一个FIN占用一个序号)。</p>
-<p>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</p>
-<p>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手,连接断开。</p>
-<h3 id="六、浏览器解析-渲染资源"><a href="#六、浏览器解析-渲染资源" class="headerlink" title="六、浏览器解析/渲染资源"></a>六、浏览器解析/渲染资源</h3><p>&nbsp;&nbsp;浏览器拿到服务器传回的资源后(例如:HTML文件)就会开始解析，构建DOM模型，解析CSS文件渲染模型，解释JS等等，渲染出页面(至于浏览器如何解析，这是我的知识盲区，请大佬带带)。</p>
-<h1 id="整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。"><a href="#整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。" class="headerlink" title="整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。"></a>整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。</h1>
+
       
     </div>
     
@@ -432,13 +420,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+            <a href="/tags/ArrayList/" rel="tag"># ArrayList</a>
           
-            <a href="/tags/通信/" rel="tag"># 通信</a>
+            <a href="/tags/源码/" rel="tag"># 源码</a>
           
-            <a href="/tags/执行流程/" rel="tag"># 执行流程</a>
-          
-            <a href="/tags/TCP-IP/" rel="tag"># TCP/IP</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -451,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/11/HTTPgetandpost/" rel="next" title="走进HTTP协议之报文(下)-浅谈get和post">
-                <i class="fa fa-chevron-left"></i> 走进HTTP协议之报文(下)-浅谈get和post
+              <a href="/2019/05/21/java全栈知识点/" rel="next" title="3年,前进的方向......">
+                <i class="fa fa-chevron-left"></i> 3年,前进的方向......
               </a>
             
           </div>
@@ -461,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/16/Base64/" rel="prev" title="图片转Base64编码-java实现">
-                图片转Base64编码-java实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/02/HTTP/" rel="prev" title="走进HTTP协议之报文(上)">
+                走进HTTP协议之报文(上) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -618,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP执行流程拓展"><span class="nav-text">HTTP执行流程拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过程概览"><span class="nav-text">过程概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、域名解析"><span class="nav-text">一、域名解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、TCP三次握手"><span class="nav-text">二、TCP三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、发送HTTP请求"><span class="nav-text">三、发送HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、响应HTTP请求"><span class="nav-text">四、响应HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、TCP挥手"><span class="nav-text">五、TCP挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、浏览器解析-渲染资源"><span class="nav-text">六、浏览器解析/渲染资源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。"><span class="nav-text">整个web请求大概流程到此结束，前面已经说到这并包含服务器内部流程。后续慢慢分享服务器内部的执行流程，比如Nginx，web容器，SpringMVC，数据库等等的执行流程。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList源码剖析"><span class="nav-text">ArrayList源码剖析</span></a></li></ol></div>
             
 
           </div>

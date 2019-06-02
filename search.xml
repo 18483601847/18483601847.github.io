@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[千里之行始于足下]]></title>
+    <url>%2F2019%2F06%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>源码</tag>
+        <tag>java</tag>
+        <tag>数据库</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[走进HTTP协议之报文(上)]]></title>
+    <url>%2F2019%2F06%2F02%2FHTTP%2F</url>
+    <content type="text"><![CDATA[走进HTTP协议之报文(上)第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏里输入了www.baidu.com按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料! HTTP报文结构客户端与服务器之间的通信通过底层流处理传输数据，但是如果两者之间只是单纯的发送字节数据，彼此根本不知道对方所描述的信息，两种之间必须通过某种数据格式传输数据，好比人们写信一样，要按照某一种格式写，如果只是在纸上不按规矩随便写上自己的内容，接收方是无法理解你写的东西的。而客户端与服务器之间通信约定的格式就是HTTP协议，HTTP他是一种规范，一种约定的协议，并不是某种新的物理技术。 对于新同学来说首先上图：我以火狐浏览器为例，打开浏览器按下F12，就可以看到许多条浏览器请求服务器的记录，随便选中一条就可以看到HTTP部分模样了。 HTTP请求HTTP请求和响应的报文结构一致 对于请求来说请求行包含请求服务器的方法,资源URL和HTTP版本信息 对于响应来说响应行包含请求结果的状态码，消息说明和HTTP版本信息 请求头包含请求或响应的各种条件和属性，一般分未4钟头部：通用头部，请求头部，响应头部，实体头部 通用首部字段：请求报文和响应报文都会使用的各种头部。 请求首部字段：从客户端向服务器发送请求时使用的各种头部。 响应首部字段：从服务器向客户端发送响应时使用的各种头部。 实体首部字段：在请求/响应的实体部分使用的各种头部。注意：当HTTP报文首部出现了两个或以上相同头部字段名时到底是处理第一次出现还是最后一次的头部，各浏览器内部处理逻辑不同。HTTP首部HTTP首部字段是传递额外重要信息的作用，比如告知对方自己处理的字符集，压缩格式，实体类型等等。我们以HTTP1.1为例(目前使用最为广泛的就是HTTP的1.1版本，各版本之间的区别，在以后会讲到)常见的通用头部字段 Connection 连接管理： 1.控制代理服务器不再转发该头部 Connection:Upgrade 2.管理持久连接 Connection:Keep-Alive 表示客户端与服务器的连接是持久连接，这也是HTTP1.0和1.1很大的不同之处。 Date 创建报文的时间： Date:Tue,01 Jul 1999 09:09:09 GMT 表示通信双方发送报文的时间。 Transfer-Encoding 编码方式： Transfer-Encoding:chunked 表示传输报文主体时采用的编码方式。 Via 路径追踪：(各个代理服务器会在Via信息中添加自己服务器的元信息) Via:1.0 gw.hackr.jp(Squid/3.1),1.1 a1 example.com(Squid/2.7) 表示HTTP报文从客户端到目标服务器经过所有的代理或网关，每经过一个代理服务器，Via的信息就会添加追加一条该服务器的元信息。 Warning 警告： Warning:[警告码][主机:端口]&quot;[警告内容]&quot;([警告时间]) 表示通信之间的各种警告提示信息。常见的请求首部字段 Accept 能接受的格式： Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 表示客户端告知服务器自己能处理的媒体信息类型，类型之间逗号隔开，q表示权重，不指定权重，默认q=1。 Accept-Charset 能接受的字符集： Accept:Charset:iso-8859-1,unicode-1-1;q=0.8 表示客户端告知服务器自己能处理的字符集，q表示字符集间的权重优先级，各种字符集之间逗号隔开。 Accept-Encoding 能接受的内容编码： Accept-Encoding:gzip,deflate 表示客户端告知服务器自己处理文件的编码方式，gzip和deflate均是压缩算法格式，q表示权重优先级。 Accept-Language 能接受的语言： Accept-Language:zh-cn,zh;q=0.7;en-us,en;q==0.3 表示客户端告知服务器自己能处理的语言,中文或英文等等。 Authorization 认证信息： Authorization:Basic wllirSOI64Slsdkhsdf635dg== 表示客户端告知服务器用户代理的认证信息，如果服务器要求该认证信息，而客户端没有传入，则会抛出401错误。 Host 请求的目标服务器主机名： Host:www.wangzhicto.com 指明要请求的目标服务器，当某个IP地址下映射了多个域名，转发服务器无法得知客户端要访问哪一个子服务器时，就必须要明确指定时哪一个子服务器。 Range 请求资源范围： Range:bytes=1024-2048 表示客户端告知服务器自己所需要的资源的范围，比如客户端需要username.txt文件的第1024-2048字节内容，服务器就无需全部返回。注：范围单位是字节。 Referer 请求发起来源地址： Referer:http://www.taobao.com/index.html 表示请求的URL是从哪一个页面发起的。 User-Agent 客户端信息： User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36 客户端告知服务器自己的基本信息，比如操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。常见的响应首部字段 Server 服务器信息： Server:Apache/2.2.0 (Unix) 表示服务器告知客户端当前服务器上的HTTP服务器应用程序基本信息。 Accept-Ranges 范围处理： Accept-Ranges:bytes 告知客户端当前服务器能否处理范围请求，不能处理就返回none Location 资源重定向： Location:http://www.wangchicto2.com/hello.html 表示服务器告知客户端，被请求的资源在另一个地址，希望客户端按照如下地址进行请求，并且返回的状态码为3开头的三位数，比如302重定向。 Retry-After 服务器维护通知： Retry-After:Tue,01 Jul 1999 09:09:09 GMT 告知客户端服务器维护到某个时刻以后再来访问。 Content-Encoding 内容编码方式： Content-Encoding:gzip Content-Language 内容语言： Content-Language:zh-CN Content-Length 内容大小： Content-Length:1024 表示返回的内容大小，单位：字节。 Content-Range 内容范围： Content-Range:1024-2048 表示返回的内容范围。 Content-Type 实体类型： Content-Type:text/html;charset=utf-8 表示返回的内容类型格式。其他 Cookie 客户端信息对象： Cookie:username=wangzhi 表示客户端告知服务器一些私密信息 HTTP常见状态码速查HTTP状态码表示服务器返回给客户端的状态，可以大概描述处理的结果情况。HTTP状态码分为5类,分别是1xx,2xx,3xx,4xx,5xx (‘xx’表示数字)1xx:1开头的三位数，表示服务器接收后请求正在处理。2xx:2开头的三位数，表示服务器正常处理完毕。3xx:3开头的三位数，表示该请求需要附加操作才能继续完成。4xx:4开头的三位数，表示服务器无法处理该请求。5xx:5开头的三位数，表示服务器在处理请求过程中出错。 200 表示客户端发起的请求被服务器正常成功处理。 206 表示客户端发起了范围请求。 302 表示该请求的资源被分配到了新的路径上，希望客户端重新按照返回的URL请求。 304 表示服务器告知客户端，该资源可以使用你的缓存，不需要重新获取。 400 表示请求报文中存在语法格式错误，请客户端检查发请的请求格式是否合法。 401 表示服务器需要客户端提供身份认证。 403 表示客户端请求的资源不允许访问。 404 表示服务器上没有客户端要请求的资源。这个错误很常见，请求的资源不存在。 500 表示服务器在处理请求的时候发生了错误，可能是程序BUG引起。 502 表示服务器宕机或防火墙问题。 503 表示服务器处于超负荷运行或正在停机维护。 #第一章博客就到此吧，后续分享HTTP(下),包括HTTP的请求方式，HTTPS，HTTP请求全过程的解析。]]></content>
+      <categories>
+        <category>通信</category>
+      </categories>
+      <tags>
+        <tag>HTTP</tag>
+        <tag>通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[集合源码剖析———ArrayList]]></title>
+    <url>%2F2019%2F05%2F24%2FArrayList%2F</url>
+    <content type="text"><![CDATA[ArrayList源码剖析&nbsp;&nbsp;作为日常开发中最常用的集合之一的ArrayList，说到他我们第一个印象就是知道他底层是动态数组实现，今天就来看看他的功能到底是怎么实现的。我以JDK1.8为例，解读一下ArrayList常见方法的源码。对于ArrayList主要的就是它的： ArrayList的构造 ArrayList添加元素 ArrayList获取元素 ArrayList删除元素 遍历ArrayList 判断对象是否存在于ArrayList中 ArrayList排序算法 ArrayList交并集]]></content>
+      <categories>
+        <category>源码</category>
+      </categories>
+      <tags>
+        <tag>ArrayList</tag>
+        <tag>源码</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[3年,前进的方向......]]></title>
     <url>%2F2019%2F05%2F21%2Fjava%E5%85%A8%E6%A0%88%E7%9F%A5%E8%AF%86%E7%82%B9%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;这两天看了很多前辈大佬的感悟心得，受益匪浅。这里我把前辈们给我们的建议整理一下，也算是自己的学习计划。再CSDN上看到一句很有意思的话:”面试造核弹、入职拧螺丝,到底如何应付面试的核弹制造技术”？那就是只能做一个全面的核弹制造专家”。这里整理了一下java十万八千里取经之路，我们应该具备的技能，一部分采纳自CSDN上的前辈大佬的经验之谈，一部分是自己的学习方向。 开篇第一句话：技术始终要向学历低头第一部分：JAVA关键字作用&nbsp;&nbsp;明白static、final、transient、volatile等等的作用，基本原理，JVM对这些关键字有什么特殊处理？，foreach循环的原理等等。 第二部分：集合(必看不解释)&nbsp;&nbsp;List、Map、Set 各种实现类的底层实现原理，实现类的优缺点。 List集合 ArrayList实现原理，优缺点，源码必看 LinkedList实现原理，优缺点，源码必看 Vector、Stack特点Set集合 HashSet实现原理，源码必看 LinkedHashSet实现原理 TreeSet如何实现有序Map HashMap源码必看，实现原理必须懂，线程安全问题，红黑树 TreeMap如何实现有序 LinkedHashMap基本特征 ConcurrentHashMap必须懂为什么安全，分段锁，迭代器CopyOnWrite 常用并发集合的作用，场景第三部分：线程 Runnable和Callable有何区别？多次start一个线程会怎么样、线程有哪些状态？ synchronized、Lock和ReentrantLock的区别、synchronized锁普通方法和锁静态方法、死锁的原理及排查方法 什么是ThreadLocal？ 常用的线程池有几种？这几种线程池之间有什么区别和联系？ 常用的并发包下的锁第四部分：设计模式 单例模式的几种实现方式 代理模式实现方式有几种？各有什么区别？底层如何实现？必须会 工厂模式特征 装饰者模式如何实现？第五部分：IO流&nbsp;&nbsp;文件IO流会用几种就行，主要是Socket 阻塞/非阻塞的区别、同步/异步的区别 NIO、BIO、AIO的区别 NIO实现原理？多路复用机制？ Netty 第六部分：JVM&nbsp;&nbsp;不研究JVM的java程序员当不了大佬。 垃圾收集机制，常见的垃圾收集器，各有什么特点 常见的垃圾回收算法，各自的特点 类加载机制/双亲委派模型到底是怎么回事？有哪些类加载器？ JVM内存模型 堆、栈、方法区各自的模型，作用 JVM调优 第七部分：框架源码(必看不解释)&nbsp;&nbsp;最近我正在看腾讯课堂里面教的框架源码系列课程，感觉很有用，我们天天在用框架，却不知道框架的底层，实属可悲。 Spring的IOC和AOP如何实现？ Spring如何使用的工厂模式？ Spring如何管理Bean？初始化，销毁能做什么？怎么做？ Spring如何管理事务？事务隔离级别？传播？ SpringMVC执行流程？ MyBatis工作流程？ MyBatis如何实现Mapper接口映射？代理模式如何实现？ SqlSession如何执行的增删改查？一二级缓存 结果集如何封装的对象？ 第八部分：数据库&nbsp;&nbsp;数据库当热不能停留在增删改查阶段，必须清楚更深层次的东西，以MySql为例。 SQL执行流程？执行顺序？ 索引为什么用树结构？ SQL语句优化 Explain如何分析执行计划？ 大数据量的分库分表？一致性问题？读写分离，双机热备？ 事务隔离级别？ MyISAM和InnerDB各自区别？第九部分：第三方中间件/框架/开源项目 Dubbo如何进行封装，如果进行负载均衡的实现？ Zookeeper协调框架有何特点？作用？ 消息队列：rabbitMQ工作模式，应用场景？Kafka工作原理？ 缓存：主要是结合业务有不同实现，redis相关问题，雪崩？持久化？数据淘汰？ 第十部份：数据结构&amp;算法&nbsp;&nbsp;常用的数据结构在集合里面已经有所提现，但是也要知道常见的数据结构和算法。 AVL树、红黑树、栈、队列、散列表 常见的排序算法：冒泡、快排、选择、插入 归并排序在Collection.sort()里如何应用的？ 二分查找算法 递归/迭代第十一部份：web零碎知识点(也挺重要) HTTP相关，请求/响应？HTTPS有何区别？请求方法各自区别? TCP的三次握手四次挥手 Tomcat工作流程？调优 Servlet的核心作用，继承实现结构，生命周期 Cookie、session 分布式下的session问题？Token机制？ 分布式锁如何实现？redis没有锁机制如何实现锁？ java反射 序列化 Atom包相关原子操作 Maven SpringBoot第十二部份：Linux 基本的Linux操作，基本命令，内存/进程管理，vim相关，shell简单脚本 Docker容器技术、K8S第十二部份：大数据相关技术 ES全文检索 Hadoop各阶段执行流程，hive数据仓库的基本操作，HBase工作模型 实时处理Spark]]></content>
@@ -58,32 +97,6 @@
       <tags>
         <tag>HTTP</tag>
         <tag>通信</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[走进HTTP协议之报文(上)]]></title>
-    <url>%2F2019%2F05%2F08%2FHTTP%2F</url>
-    <content type="text"><![CDATA[走进HTTP协议之报文(上)第一个博客还是从HTTP开始吧，原因很简单，我买了一本剖析HTTP的书，也是我第一次完整地看完第一本关于技术的书籍。我相信对于大多数开发者而言，特别是web开发，我们时时刻刻都接触着HTTP，但是对于初级甚至更高级的程序员，不见得对这个熟悉又陌生的协议多精通，当然我也一样，在不断学习。对于刚入行或者外行朋友来说什么是HTTP，解释起来费劲，就一句话:当你在浏览器地址栏里输入了www.baidu.com按下回车那一刻，展现在你面前的这个页面就是通过HTTP协议从服务器带回来的，可以说，大家平时上网浏览/购物等等都是建立在HTTP协议上通信的。就不从头写了，直接上整理的资料! HTTP报文结构客户端与服务器之间的通信通过底层流处理传输数据，但是如果两者之间只是单纯的发送字节数据，彼此根本不知道对方所描述的信息，两种之间必须通过某种数据格式传输数据，好比人们写信一样，要按照某一种格式写，如果只是在纸上不按规矩随便写上自己的内容，接收方是无法理解你写的东西的。而客户端与服务器之间通信约定的格式就是HTTP协议，HTTP他是一种规范，一种约定的协议，并不是某种新的物理技术。 对于新同学来说首先上图：我以火狐浏览器为例，打开浏览器按下F12，就可以看到许多条浏览器请求服务器的记录，随便选中一条就可以看到HTTP部分模样了。 HTTP请求HTTP请求和响应的报文结构一致 对于请求来说请求行包含请求服务器的方法,资源URL和HTTP版本信息 对于响应来说响应行包含请求结果的状态码，消息说明和HTTP版本信息 请求头包含请求或响应的各种条件和属性，一般分未4钟头部：通用头部，请求头部，响应头部，实体头部 通用首部字段：请求报文和响应报文都会使用的各种头部。 请求首部字段：从客户端向服务器发送请求时使用的各种头部。 响应首部字段：从服务器向客户端发送响应时使用的各种头部。 实体首部字段：在请求/响应的实体部分使用的各种头部。注意：当HTTP报文首部出现了两个或以上相同头部字段名时到底是处理第一次出现还是最后一次的头部，各浏览器内部处理逻辑不同。HTTP首部HTTP首部字段是传递额外重要信息的作用，比如告知对方自己处理的字符集，压缩格式，实体类型等等。我们以HTTP1.1为例(目前使用最为广泛的就是HTTP的1.1版本，各版本之间的区别，在以后会讲到)常见的通用头部字段 Connection 连接管理： 1.控制代理服务器不再转发该头部 Connection:Upgrade 2.管理持久连接 Connection:Keep-Alive 表示客户端与服务器的连接是持久连接，这也是HTTP1.0和1.1很大的不同之处。 Date 创建报文的时间： Date:Tue,01 Jul 1999 09:09:09 GMT 表示通信双方发送报文的时间。 Transfer-Encoding 编码方式： Transfer-Encoding:chunked 表示传输报文主体时采用的编码方式。 Via 路径追踪：(各个代理服务器会在Via信息中添加自己服务器的元信息) Via:1.0 gw.hackr.jp(Squid/3.1),1.1 a1 example.com(Squid/2.7) 表示HTTP报文从客户端到目标服务器经过所有的代理或网关，每经过一个代理服务器，Via的信息就会添加追加一条该服务器的元信息。 Warning 警告： Warning:[警告码][主机:端口]&quot;[警告内容]&quot;([警告时间]) 表示通信之间的各种警告提示信息。常见的请求首部字段 Accept 能接受的格式： Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 表示客户端告知服务器自己能处理的媒体信息类型，类型之间逗号隔开，q表示权重，不指定权重，默认q=1。 Accept-Charset 能接受的字符集： Accept:Charset:iso-8859-1,unicode-1-1;q=0.8 表示客户端告知服务器自己能处理的字符集，q表示字符集间的权重优先级，各种字符集之间逗号隔开。 Accept-Encoding 能接受的内容编码： Accept-Encoding:gzip,deflate 表示客户端告知服务器自己处理文件的编码方式，gzip和deflate均是压缩算法格式，q表示权重优先级。 Accept-Language 能接受的语言： Accept-Language:zh-cn,zh;q=0.7;en-us,en;q==0.3 表示客户端告知服务器自己能处理的语言,中文或英文等等。 Authorization 认证信息： Authorization:Basic wllirSOI64Slsdkhsdf635dg== 表示客户端告知服务器用户代理的认证信息，如果服务器要求该认证信息，而客户端没有传入，则会抛出401错误。 Host 请求的目标服务器主机名： Host:www.wangzhicto.com 指明要请求的目标服务器，当某个IP地址下映射了多个域名，转发服务器无法得知客户端要访问哪一个子服务器时，就必须要明确指定时哪一个子服务器。 Range 请求资源范围： Range:bytes=1024-2048 表示客户端告知服务器自己所需要的资源的范围，比如客户端需要username.txt文件的第1024-2048字节内容，服务器就无需全部返回。注：范围单位是字节。 Referer 请求发起来源地址： Referer:http://www.taobao.com/index.html 表示请求的URL是从哪一个页面发起的。 User-Agent 客户端信息： User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36 客户端告知服务器自己的基本信息，比如操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。常见的响应首部字段 Server 服务器信息： Server:Apache/2.2.0 (Unix) 表示服务器告知客户端当前服务器上的HTTP服务器应用程序基本信息。 Accept-Ranges 范围处理： Accept-Ranges:bytes 告知客户端当前服务器能否处理范围请求，不能处理就返回none Location 资源重定向： Location:http://www.wangchicto2.com/hello.html 表示服务器告知客户端，被请求的资源在另一个地址，希望客户端按照如下地址进行请求，并且返回的状态码为3开头的三位数，比如302重定向。 Retry-After 服务器维护通知： Retry-After:Tue,01 Jul 1999 09:09:09 GMT 告知客户端服务器维护到某个时刻以后再来访问。 Content-Encoding 内容编码方式： Content-Encoding:gzip Content-Language 内容语言： Content-Language:zh-CN Content-Length 内容大小： Content-Length:1024 表示返回的内容大小，单位：字节。 Content-Range 内容范围： Content-Range:1024-2048 表示返回的内容范围。 Content-Type 实体类型： Content-Type:text/html;charset=utf-8 表示返回的内容类型格式。其他 Cookie 客户端信息对象： Cookie:username=wangzhi 表示客户端告知服务器一些私密信息 HTTP常见状态码速查HTTP状态码表示服务器返回给客户端的状态，可以大概描述处理的结果情况。HTTP状态码分为5类,分别是1xx,2xx,3xx,4xx,5xx (‘xx’表示数字)1xx:1开头的三位数，表示服务器接收后请求正在处理。2xx:2开头的三位数，表示服务器正常处理完毕。3xx:3开头的三位数，表示该请求需要附加操作才能继续完成。4xx:4开头的三位数，表示服务器无法处理该请求。5xx:5开头的三位数，表示服务器在处理请求过程中出错。 200 表示客户端发起的请求被服务器正常成功处理。 206 表示客户端发起了范围请求。 302 表示该请求的资源被分配到了新的路径上，希望客户端重新按照返回的URL请求。 304 表示服务器告知客户端，该资源可以使用你的缓存，不需要重新获取。 400 表示请求报文中存在语法格式错误，请客户端检查发请的请求格式是否合法。 401 表示服务器需要客户端提供身份认证。 403 表示客户端请求的资源不允许访问。 404 表示服务器上没有客户端要请求的资源。这个错误很常见，请求的资源不存在。 500 表示服务器在处理请求的时候发生了错误，可能是程序BUG引起。 502 表示服务器宕机或防火墙问题。 503 表示服务器处于超负荷运行或正在停机维护。 #第一章博客就到此吧，后续分享HTTP(下),包括HTTP的请求方式，HTTPS，HTTP请求全过程的解析。]]></content>
-      <categories>
-        <category>通信</category>
-      </categories>
-      <tags>
-        <tag>HTTP</tag>
-        <tag>通信</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[千里之行始于足下]]></title>
-    <url>%2F2019%2F05%2F07%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[千里之行始于足下今天开始更新技术博客，同行或者将来同行的朋友们可以一起学习。自己搭的私人站点，慢慢的分享与学习java，数据库，各技术源码，web优化，互联网架构，大数据相关的技术点和一些自己搜集的文档/安装包资源。希望大家指出不足或者错误的地方，也希望给刚入行的朋友一些经验指导！不定时更新。]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>数据库</tag>
-        <tag>大数据</tag>
-        <tag>源码</tag>
       </tags>
   </entry>
 </search>
